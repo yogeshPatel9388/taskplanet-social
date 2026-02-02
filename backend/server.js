@@ -11,7 +11,13 @@ connectDB();
 const app = express();
 
 /* Middleware is enabled for JSON parsing and cross-origin requests */
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  }),
+);
+
 app.use(express.json());
 
 /* API routes are registered here */
@@ -21,5 +27,5 @@ app.use("/api/posts", postRoutes);
 /* Server is started on the defined port */
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Backend running on port ${PORT}`);
+  console.log(`Server is running ${PORT}`);
 });
