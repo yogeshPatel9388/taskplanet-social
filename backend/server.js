@@ -13,7 +13,7 @@ const app = express();
 /* Middleware is enabled for JSON parsing and cross-origin requests */
 app.use(
   cors({
-    origin: "https://taskplanet-social.vercel.app",
+    origin: "https://taskplanet-social.vercel.app/api",
     credentials: true,
   }),
 );
