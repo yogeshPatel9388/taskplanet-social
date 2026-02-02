@@ -13,7 +13,7 @@ const app = express();
 /* Middleware is enabled for JSON parsing and cross-origin requests */
 app.use(
   cors({
-    origin: "*",
+    origin: "https://taskplanet-social.vercel.app",
     credentials: true,
   }),
 );
@@ -21,6 +21,10 @@ app.use(
 app.use(express.json());
 
 /* API routes are registered here */
+/* Home Route (Health Check) */
+app.get("/", (req, res) => {
+  res.send("TaskPlanet Backend is Running...!");
+});
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 
